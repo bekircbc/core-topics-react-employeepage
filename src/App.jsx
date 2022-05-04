@@ -17,7 +17,10 @@ function App() {
 			try {
 				const response = await fetch(employeesUrl);
 				const _employees = await response.json();
-				setEmployeeOfTheWeek(_employees[3]);
+				const randomZahl = Math.trunc(
+					Math.random() * _employees.length
+				);
+				setEmployeeOfTheWeek(_employees[randomZahl]);
 				setEmployees(_employees);
 			} catch (e) {
 				console.log(e.message);
